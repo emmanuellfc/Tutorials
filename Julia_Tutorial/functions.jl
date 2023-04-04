@@ -1,22 +1,35 @@
-## Julia provides functions that convert values from one type to another
-## The parse function takes a string and converts it to any number type, if it can
-## or complains otherwise.
-x = "32"
-y = parse(Int64, x)
-println(typeof(x))
-println(typeof(y))
+"""
+Function for obtaining the distance between two points in the plane.
+"""
+function distance(x1, y1, x2, y2)
+    dx = x2 - x1
+    dy = y2 - y1
+    d2 = dx^2 + dy^2
+    sqrt(d2)
+end
 
-## trunc can convert floating-point values to integers, but it doesn't round off
-z =  trunc(Int64, 3.999)
-println(z)
+## Use incremental development to write a function called hypotenuse 
+## that returns the length of the hypotenuse of a right triangle given 
+## the lengths of the other two legs as arguments. Record each stage of 
+## the development process as you go.
 
-## float converts integers to floating-point numbers
-z1 = float(32)
-println(z1)
+"""
+Function for obtaining the hypotenuse of a right triangle.
+"""
+function hipotenuse(side1, side2)
+    side3 = sqrt(side1^2 + side2^2)
+end
 
-## string converts its argument to a string
-z2 = string(32)
-println(typeof(z2))
+## Write a function isbetween(x, y, z) 
+## that returns true if x ≤ y ≤ z or false otherwise.
 
-## Math functions
-println(sqrt(2))
+"""
+Function for checking if a number is between two other numbers.
+"""
+function isbetween(x, y, z)
+    if x <= y && y <= z
+        return true
+    else
+        return false
+    end
+end
