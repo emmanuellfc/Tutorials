@@ -1,0 +1,2 @@
+import lasagna
+lasagna.EXPECTED_BAKE_TIME
