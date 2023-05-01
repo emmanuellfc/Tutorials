@@ -194,7 +194,7 @@ md"**Exercise 6-6:**
 
 A palindrome is a word that is spelled the same backward and forward, like “noon” or “redivider.” Recursively, a word is a palindrome if the first and last letters are the same and the middle is a palindrome.
 
-The following are functions that take a string argument and return the first, last, and middle letters:"
+The following are functions that take a string argument and return the first, last, and middle letters."
 
 # ╔═╡ ef3ae5e3-3fd8-43b5-9a50-7295a2faa748
 begin
@@ -213,6 +213,34 @@ begin
     	last = lastindex(word)
     	word[nextind(word, first) : prevind(word, last)]
 	end
+end
+
+# ╔═╡ f163e47c-8101-401e-aad0-009f8f8f7689
+md"Write a function called ispalindrome that takes a string argument and returns true if it is a palindrome and false otherwise. Remember that you can use the built-in function length to check the length of a string."
+
+# ╔═╡ 351a2f10-7772-4733-b9af-e69478e226aa
+function ispalindrome(x)
+end
+
+# ╔═╡ 76f17a3d-a02e-4a7c-ab97-27e1ff5ccbad
+md"**Exercise 6-7:**
+A number, a, is a power of b if it is divisible by b and a/b is a power of b. Write a function called ispower that takes parameters a and b and returns true if a is a power of b.
+"
+
+# ╔═╡ e12a24fd-8d86-4120-b2e3-084572c191d2
+function ispower(a, b)
+end
+
+# ╔═╡ 51821003-e24f-4dc7-8ae5-931692dcc0ab
+md"**Exercise 6-8:**
+The greatest common divisor (GCD) of a and b is the largest number that divides both of them with no remainder.
+
+One way to find the GCD of two numbers is based on the observation that if r is the remainder when a is divided by b, then gcd(a, b) = gcd(b, r). As a base case, we can use gcd(a, 0) = a.
+
+Write a function called gcd that takes parameters a and b and returns their greatest common divisor."
+
+# ╔═╡ 6ced2715-7cf0-4fa2-a93a-56cc29a15f12
+function gcd(a, b)
 end
 
 # ╔═╡ c9108616-e03c-46ad-97e9-d01743d9248d
@@ -286,3 +314,9 @@ end
 # ╠═9ec6eb45-3a68-4a8f-88e0-0d1d6390bb73
 # ╟─ed16b0e3-bf0d-4cad-8ad8-3f4c26f5c7c5
 # ╠═ef3ae5e3-3fd8-43b5-9a50-7295a2faa748
+# ╟─f163e47c-8101-401e-aad0-009f8f8f7689
+# ╠═351a2f10-7772-4733-b9af-e69478e226aa
+# ╟─76f17a3d-a02e-4a7c-ab97-27e1ff5ccbad
+# ╠═e12a24fd-8d86-4120-b2e3-084572c191d2
+# ╟─51821003-e24f-4dc7-8ae5-931692dcc0ab
+# ╠═6ced2715-7cf0-4fa2-a93a-56cc29a15f12
