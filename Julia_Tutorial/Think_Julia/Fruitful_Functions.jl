@@ -219,7 +219,16 @@ end
 md"Write a function called ispalindrome that takes a string argument and returns true if it is a palindrome and false otherwise. Remember that you can use the built-in function length to check the length of a string."
 
 # ╔═╡ 351a2f10-7772-4733-b9af-e69478e226aa
+"""
+Returns true if the input is a palindrome, false, otherwise.
+"""
 function ispalindrome(x)
+	x_rev = reverse(x)
+	if x == x_rev
+		return true
+	else
+		return false
+	end
 end
 
 # ╔═╡ 76f17a3d-a02e-4a7c-ab97-27e1ff5ccbad
@@ -228,7 +237,16 @@ A number, a, is a power of b if it is divisible by b and a/b is a power of b. Wr
 "
 
 # ╔═╡ e12a24fd-8d86-4120-b2e3-084572c191d2
+"""
+Returns true if a is power of b, otherwise false.
+"""
 function ispower(a, b)
+	c = a / b
+	if a % b == 0 && ispower(c, b)
+		return true
+	else
+		return false
+	end
 end
 
 # ╔═╡ 51821003-e24f-4dc7-8ae5-931692dcc0ab
@@ -240,25 +258,12 @@ One way to find the GCD of two numbers is based on the observation that if r is 
 Write a function called gcd that takes parameters a and b and returns their greatest common divisor."
 
 # ╔═╡ 6ced2715-7cf0-4fa2-a93a-56cc29a15f12
-function gcd(a, b)
-end
-
-# ╔═╡ c9108616-e03c-46ad-97e9-d01743d9248d
-# ╠═╡ disabled = true
-#=╠═╡
 """
-Returns the factorial of a given integer n.
+Returns the greatest common divisor of a and b.
 """
-function fact(n)
-	if n == 0
-		return 1
-	else
-		recurse = fact(n-1)
-		result = n* recurse
-		return result
-	end
+function gcd_(a, b)
+	return gcd(a, b)
 end
-  ╠═╡ =#
 
 # ╔═╡ d5a05064-f4b3-443c-9687-5b63edac01c0
 """
@@ -277,6 +282,23 @@ function fact(n)
 		return fib(n-1) + fib(n-2)
 	end
 end
+
+# ╔═╡ c9108616-e03c-46ad-97e9-d01743d9248d
+# ╠═╡ disabled = true
+#=╠═╡
+"""
+Returns the factorial of a given integer n.
+"""
+function fact(n)
+	if n == 0
+		return 1
+	else
+		recurse = fact(n-1)
+		result = n* recurse
+		return result
+	end
+end
+  ╠═╡ =#
 
 # ╔═╡ Cell order:
 # ╟─98d89622-e826-11ed-210d-c1c2600e9c97
