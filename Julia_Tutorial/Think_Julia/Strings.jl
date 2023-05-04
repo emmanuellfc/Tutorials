@@ -131,9 +131,98 @@ function find(word, letter)
 end
 
 # ╔═╡ 72830f9c-e4f7-4811-84a4-e6168bd57939
+md"**Looping and counting**"
 
+# ╔═╡ 95b85ed5-f9c3-4baf-b131-d9e12905f349
+begin
+	#word = "banana"
+	#counter = 0
+	#for letter in word
+	#	if letter == 'a'
+#			global counter += 1
+#		end
+#	end
+#	println(counter)
+end
+
+# ╔═╡ 6b5b10b8-d8a9-4b29-b506-a412126500b1
+md"**Exercise 8-5:**
+
+
+Encapsulate this code in a function named count, and generalize it so that it accepts the string and the letter as arguments."
+
+# ╔═╡ 22c5a56d-a647-4bc2-ad0c-597a2cffb06f
+"""
+Returns the number of times a given letter appears in a given string.
+"""
+function count(word::String, letter::Char)
+	counter = []
+	for x in word
+		if x == letter
+			push!(counter, 1)
+		end
+	end
+	return sum(counter)
+end
+
+# ╔═╡ 00187fa4-ea11-493b-a8ba-d3f1dd22018c
+count("emmanuel", 'e')
+
+# ╔═╡ 4eea8c9c-2df6-4357-9d7b-a343bb615f1c
+md"**The \in operator**"
+
+# ╔═╡ 9a37be04-5180-4019-973d-5f87c9ea9bbd
+'a' ∈ "banana"
 
 # ╔═╡ ab31e23f-74c4-4fcc-992a-62b07458ad28
+function inboth(word1, word2)
+	for letter in word1
+		if letter ∈ word2
+			print(letter, " ")
+		end
+	end
+end
+
+# ╔═╡ cffc50a9-d99d-4215-9d79-e68422a18901
+inboth("apples", "oranges")
+
+# ╔═╡ 6067f1ea-b42d-4371-8a7e-fb5e25027cff
+md"**Glossary**
+
+* sequence: An ordered collection of values where each value is identified by an integer index.
+
+* ASCII standard: A character encoding standard for electronic communication specifying 128 characters.
+
+* Unicode standard: A computing industry standard for the consistent encoding, representation, and handling of text expressed in most of the world’s writing systems.
+
+* index: An integer value used to select an item in a sequence, such as a character in a string. In Julia indices start from 1.
+
+* UTF-8 encoding: A variable-width character encoding capable of encoding all 1,112,064 valid code points in Unicode using one to four 8-bit bytes.
+
+* traverse: To iterate through the items in a sequence, performing a similar operation on each.
+
+* slice: A part of a string specified by a range of indices.
+
+* empty string: A string with no characters and length 0, represented by two quotation marks.
+
+* immutable: The property of a sequence whose items cannot be changed.
+
+* string interpolation: The process of evaluating a string containing one or more placeholders, yielding a result in which the placeholders are replaced with their corresponding values.
+
+* search: A pattern of traversal that stops when it finds what it is looking for.
+
+* counter: A variable used to count something, usually initialized to zero and then incremented"
+
+# ╔═╡ 658a4677-5a4f-49f5-9c30-b796438a3cc8
+
+
+# ╔═╡ 66f59d20-3f8e-4bfe-9be7-632e8ca6224b
+
+
+# ╔═╡ 5bd5f1cf-8129-4647-863b-ae2338a15d8b
+
+
+# ╔═╡ 54e84504-1a23-49df-a639-ecabe4077125
 
 
 # ╔═╡ Cell order:
@@ -159,5 +248,17 @@ end
 # ╟─3969b2df-433d-45f8-99bf-8caae31ad184
 # ╠═f64d00fd-d127-431f-9e41-6ebe8c5abb88
 # ╠═06085eef-b3d2-4f17-8618-d39613925dc6
-# ╠═72830f9c-e4f7-4811-84a4-e6168bd57939
+# ╟─72830f9c-e4f7-4811-84a4-e6168bd57939
+# ╠═95b85ed5-f9c3-4baf-b131-d9e12905f349
+# ╟─6b5b10b8-d8a9-4b29-b506-a412126500b1
+# ╠═22c5a56d-a647-4bc2-ad0c-597a2cffb06f
+# ╠═00187fa4-ea11-493b-a8ba-d3f1dd22018c
+# ╟─4eea8c9c-2df6-4357-9d7b-a343bb615f1c
+# ╠═9a37be04-5180-4019-973d-5f87c9ea9bbd
 # ╠═ab31e23f-74c4-4fcc-992a-62b07458ad28
+# ╠═cffc50a9-d99d-4215-9d79-e68422a18901
+# ╟─6067f1ea-b42d-4371-8a7e-fb5e25027cff
+# ╠═658a4677-5a4f-49f5-9c30-b796438a3cc8
+# ╠═66f59d20-3f8e-4bfe-9be7-632e8ca6224b
+# ╠═5bd5f1cf-8129-4647-863b-ae2338a15d8b
+# ╠═54e84504-1a23-49df-a639-ecabe4077125
