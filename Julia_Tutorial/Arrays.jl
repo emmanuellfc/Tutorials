@@ -351,12 +351,61 @@ begin
 end
 
 # ╔═╡ 49266edc-e595-49e1-95e1-912d9b59fc37
-
+md"**Exercise 10-4:**
+Write a function called interior! that takes an array, modifies it by removing the first and last elements, and returns nothing."
 
 # ╔═╡ 13e8fcab-1ecd-4cd0-8076-9580849942b7
-
+"""
+Takes an array and returns a new array that contains all but the first and last elements.
+"""
+function interior!(array)
+	last_index = length(array)
+	splice!(array, last_index)
+	splice!(array, 1)
+	return nothing
+end
 
 # ╔═╡ d71039b4-e315-4662-b5cd-0234d8e3bb11
+begin
+	test_interior! = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	interior!(test_interior!)
+	print(test_interior!)
+end
+
+# ╔═╡ 86bfd7ca-eb50-49bc-9027-31c89b13ed72
+md"**Exercise 10-5:**
+Write a function called issort that takes an array as a parameter and returns true if the array is sorted in ascending order and false otherwise."
+
+# ╔═╡ 6169f8e0-cfa8-4fb6-b9e5-d21f86baac64
+function issort(array)
+	if array == sort(array)
+		return true
+	else
+		return false
+	end
+end
+
+# ╔═╡ b359c255-70d7-43ef-9596-a7fd44cc1e89
+begin
+	test1_issort = [1, 2, 2]
+	test2_issort = ['b', 'a']
+	println(issort(test1_issort))
+	println(issort(test2_issort))
+end
+
+# ╔═╡ 18ff1303-6eb5-4335-8308-2f7374eca4fa
+
+
+# ╔═╡ c1f82997-b2cf-4c01-8969-54220f44eb9d
+
+
+# ╔═╡ d6eb5c73-12b6-4bb8-a237-c3231130b629
+
+
+# ╔═╡ 7815059f-ac87-4a0d-beb3-70446b81fbfe
+
+
+# ╔═╡ 0ae78ff1-d8e0-4c52-b7e7-ed64cdd890d1
 
 
 # ╔═╡ Cell order:
@@ -423,6 +472,14 @@ end
 # ╟─7006c295-8d3e-45ba-9480-7ad3df67a76b
 # ╠═e18c41a6-71f9-49f0-be40-f8a67667a8f3
 # ╠═eafcaefb-113d-4349-8c7d-0c35b0925ded
-# ╠═49266edc-e595-49e1-95e1-912d9b59fc37
+# ╟─49266edc-e595-49e1-95e1-912d9b59fc37
 # ╠═13e8fcab-1ecd-4cd0-8076-9580849942b7
 # ╠═d71039b4-e315-4662-b5cd-0234d8e3bb11
+# ╟─86bfd7ca-eb50-49bc-9027-31c89b13ed72
+# ╠═6169f8e0-cfa8-4fb6-b9e5-d21f86baac64
+# ╠═b359c255-70d7-43ef-9596-a7fd44cc1e89
+# ╠═18ff1303-6eb5-4335-8308-2f7374eca4fa
+# ╠═c1f82997-b2cf-4c01-8969-54220f44eb9d
+# ╠═d6eb5c73-12b6-4bb8-a237-c3231130b629
+# ╠═7815059f-ac87-4a0d-beb3-70446b81fbfe
+# ╠═0ae78ff1-d8e0-4c52-b7e7-ed64cdd890d1
