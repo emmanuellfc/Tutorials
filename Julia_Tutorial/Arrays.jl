@@ -156,18 +156,135 @@ tx = uppercase.(["abc", "def", "ghi"]);
 print(tx)
 
 # ╔═╡ bc8d7178-e34c-4059-8d3e-07c2ff6a1fca
-
+md"**Deleting and inserting Elements**"
 
 # ╔═╡ c94efd74-8378-4759-a9b3-02ba967651de
-
+begin
+	ty = ['a', 'b', 'c'];
+	splice!(ty, 2) # modifies the array and returns the element that was removed.
+	print(ty)
+end
 
 # ╔═╡ fb079915-35da-4a10-ab8f-5b06179cb9d7
-
+begin
+	tz = ['a', 'b', 'c'];
+	pop!(tz) # deletes the last element
+	print(tz)
+end
 
 # ╔═╡ 19e69eb1-ab89-44f6-9b62-d5f8f9cf05d1
-
+begin
+	tw = ['a', 'b', 'c'];
+	popfirst!(tw) # deletes the first element
+	print(tw)
+end
 
 # ╔═╡ a3070a5f-09b9-4c33-ae22-5b64b41fd7e2
+md"**Arrays and strings**
+
+A string is a sequence of characters and an array is a sequence of values, but an array of characters is not the same as a string"
+
+# ╔═╡ 8127a61a-a1a9-44f0-b183-f61d2b91b2c7
+print(collect("spam")) #collect function breaks a string or another sequence into individual elements
+
+# ╔═╡ 3a830de1-38c7-4f82-a4ff-75e372d45a36
+md"If you want to break a string into words, you can use the split function:"
+
+# ╔═╡ d425afab-7e42-4e98-80ea-d251bd338af0
+print(split("pining for the fjords"))
+
+# ╔═╡ 4d6c6fe5-5435-44ae-9c3b-cf0a501805ab
+
+
+# ╔═╡ 85209692-6825-4439-981e-c95dce11d7ef
+md"join is the inverse of split"
+
+# ╔═╡ 9e73631b-1841-4e8d-a93d-9cbe38d2d7f4
+begin
+	words = ["pining", "for", "the", "fjords"];
+	s = join(words, ' ')
+end
+
+# ╔═╡ 28abd185-8c53-4fd9-939e-259ed2f48d3b
+md"**Objects and values**
+An object is something a variable can refer to. Until now, you might have used “object” and “value” interchangeably.
+To check whether two variables refer to the same object, you can use the ≡ (\equiv TAB) or === operator:"
+
+# ╔═╡ 50034e7d-0582-44d1-b4e0-87d37448dff3
+begin
+	a = "banana"
+	b = "banana"
+	a ≡ b
+end
+
+# ╔═╡ 8a449b2c-bc4e-4cd9-85c9-a8aad8aa0b2a
+begin
+	x = [1, 2, 3];
+	y = [1, 2, 3];
+	x ≡ y
+end
+
+# ╔═╡ 84e4efb6-1b8c-4b70-aa5a-fe675e8dfed6
+md"In this case we would say that the two arrays are equivalent, because they have the same elements, but not identical, because they are not the same object. If two objects are identical, they are also equivalent, but if they are equivalent, they are not necessarily identical."
+
+# ╔═╡ 46bf8fe4-8c96-4a45-8046-4b6b32687a8a
+md"**Array arguments**"
+
+# ╔═╡ f9508760-d854-4683-91ca-4ecb51709d21
+function deletehead!(t)
+	popfirst!(t)
+end
+
+# ╔═╡ d43889a9-804c-46ff-b8d2-6d638f1d7892
+begin
+	letts = ['a', 'b', 'c'];
+	deletehead!(letts)
+	print(letts)
+end
+
+# ╔═╡ 06aed196-2ac3-43f2-a889-eabd32ef62f5
+md"**Glossary**
+
+* array: a sequence of values.
+
+* element: One of the values in an array (or other sequence); also called items.
+
+* nested array: An array that is an element of another array.
+
+* mutable: The property of a value that can be modified.
+
+* augmented assignment: A statement that updates the value of a variable using an operator like =.
+
+* accumulator: A variable used in a loop to add up or accumulate a result.
+
+* reduce operation: A processing pattern that traverses a sequence and accumulates the elements into a single result.
+
+* map: A processing pattern that traverses a sequence and performs an operation on each element.
+
+* filter: A processing pattern that traverses a sequence and selects the elements that satisfy some criterion.
+
+* dot operator: A binary operator that is applied element-by-element to arrays.
+
+* dot syntax: Syntax used to apply a function elementwise to any array.
+
+* optional argument: An argument that is not required.
+
+* delimiter: A character or string used to indicate where a string should be split.
+
+* object: Something a variable can refer to. An object has a type and a value.
+
+* equivalent: Having the same value.
+
+* identical: Being the same object (which implies equivalence).
+
+* reference: The association between a variable and its value.
+
+* aliasing: A circumstance where two or more variables refer to the same object."
+
+# ╔═╡ 4b2d7b51-c9fb-4176-9285-7552325f29b2
+
+
+# ╔═╡ cc035b98-33d4-4ffd-9c06-b4984a4dd445
 
 
 # ╔═╡ Cell order:
@@ -206,8 +323,24 @@ print(tx)
 # ╟─8cf6a8b0-2b45-45fe-8272-44f1f06a689b
 # ╠═5fd383cf-cb60-4479-b766-eb26ed7b5fdd
 # ╠═e8895df9-51eb-4120-92c9-0d60f936f890
-# ╠═bc8d7178-e34c-4059-8d3e-07c2ff6a1fca
+# ╟─bc8d7178-e34c-4059-8d3e-07c2ff6a1fca
 # ╠═c94efd74-8378-4759-a9b3-02ba967651de
 # ╠═fb079915-35da-4a10-ab8f-5b06179cb9d7
 # ╠═19e69eb1-ab89-44f6-9b62-d5f8f9cf05d1
-# ╠═a3070a5f-09b9-4c33-ae22-5b64b41fd7e2
+# ╟─a3070a5f-09b9-4c33-ae22-5b64b41fd7e2
+# ╠═8127a61a-a1a9-44f0-b183-f61d2b91b2c7
+# ╟─3a830de1-38c7-4f82-a4ff-75e372d45a36
+# ╠═d425afab-7e42-4e98-80ea-d251bd338af0
+# ╠═4d6c6fe5-5435-44ae-9c3b-cf0a501805ab
+# ╠═85209692-6825-4439-981e-c95dce11d7ef
+# ╠═9e73631b-1841-4e8d-a93d-9cbe38d2d7f4
+# ╟─28abd185-8c53-4fd9-939e-259ed2f48d3b
+# ╠═50034e7d-0582-44d1-b4e0-87d37448dff3
+# ╠═8a449b2c-bc4e-4cd9-85c9-a8aad8aa0b2a
+# ╟─84e4efb6-1b8c-4b70-aa5a-fe675e8dfed6
+# ╟─46bf8fe4-8c96-4a45-8046-4b6b32687a8a
+# ╠═f9508760-d854-4683-91ca-4ecb51709d21
+# ╠═d43889a9-804c-46ff-b8d2-6d638f1d7892
+# ╟─06aed196-2ac3-43f2-a889-eabd32ef62f5
+# ╠═4b2d7b51-c9fb-4176-9285-7552325f29b2
+# ╠═cc035b98-33d4-4ffd-9c06-b4984a4dd445
