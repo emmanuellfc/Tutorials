@@ -282,9 +282,81 @@ md"**Glossary**
 * aliasing: A circumstance where two or more variables refer to the same object."
 
 # ╔═╡ 4b2d7b51-c9fb-4176-9285-7552325f29b2
-
+md"**Exercise 10-1:**
+Write a function called nestedsum that takes an array of arrays of integers and adds up the elements from all of the nested arrays."
 
 # ╔═╡ cc035b98-33d4-4ffd-9c06-b4984a4dd445
+function nestedsum(nested_array)
+	total = []
+	length_array = length(nested_array)
+	for index in 1:length_array
+		array_sum = sum(nested_array[index])
+		push!(total, array_sum)
+	end
+	return sum(total)
+end
+
+# ╔═╡ eb522401-d47d-4a0e-a59e-a1adf5dc6693
+begin
+	test_array = [[1, 2], [3], [4, 5, 6]];
+	nestedsum(test_array)
+end
+
+# ╔═╡ 63c4f43b-47e1-47b1-8fda-52a8d33501ba
+md"**Exercise 10-2:**
+Write a function called cumulsum that takes an array of numbers and returns the cumulative sum; that is, a new array where the 
+th element is the sum of the first 
+ elements from the original array."
+
+# ╔═╡ 88a6f180-2c5a-482b-a0bf-0102718a0bfb
+"""
+Given an array, returns the cumulative sum.
+"""
+function cumulsum(array)
+	new_array = []
+	for index in 1:length(array)
+		index_array = array[1:index] 
+		push!(new_array, sum(index_array))
+	end
+	return new_array
+end
+
+# ╔═╡ 366e855a-ab0e-4e85-a7c0-e755a79cda92
+begin
+	test_cumul = [1, 2, 3];
+	cumulsum(test_cumul)
+end
+
+# ╔═╡ 7006c295-8d3e-45ba-9480-7ad3df67a76b
+md"**Exercise 10-3:**
+Write a function called interior that takes an array and returns a new array that contains all but the first and last elements."
+
+# ╔═╡ e18c41a6-71f9-49f0-be40-f8a67667a8f3
+"""
+Takes an array and returns a new array that contains all but the first and last elements.
+"""
+function interior(array)
+	last_index = length(array)
+	splice!(array, last_index)
+	splice!(array, 1)
+	return array
+end
+
+# ╔═╡ eafcaefb-113d-4349-8c7d-0c35b0925ded
+begin
+	test_interior = [1, 2, 3, 4]
+	#length(test_interior)
+	interior(test_interior)
+	#test_interior[end]
+end
+
+# ╔═╡ 49266edc-e595-49e1-95e1-912d9b59fc37
+
+
+# ╔═╡ 13e8fcab-1ecd-4cd0-8076-9580849942b7
+
+
+# ╔═╡ d71039b4-e315-4662-b5cd-0234d8e3bb11
 
 
 # ╔═╡ Cell order:
@@ -342,5 +414,15 @@ md"**Glossary**
 # ╠═f9508760-d854-4683-91ca-4ecb51709d21
 # ╠═d43889a9-804c-46ff-b8d2-6d638f1d7892
 # ╟─06aed196-2ac3-43f2-a889-eabd32ef62f5
-# ╠═4b2d7b51-c9fb-4176-9285-7552325f29b2
+# ╟─4b2d7b51-c9fb-4176-9285-7552325f29b2
 # ╠═cc035b98-33d4-4ffd-9c06-b4984a4dd445
+# ╠═eb522401-d47d-4a0e-a59e-a1adf5dc6693
+# ╟─63c4f43b-47e1-47b1-8fda-52a8d33501ba
+# ╠═88a6f180-2c5a-482b-a0bf-0102718a0bfb
+# ╠═366e855a-ab0e-4e85-a7c0-e755a79cda92
+# ╟─7006c295-8d3e-45ba-9480-7ad3df67a76b
+# ╠═e18c41a6-71f9-49f0-be40-f8a67667a8f3
+# ╠═eafcaefb-113d-4349-8c7d-0c35b0925ded
+# ╠═49266edc-e595-49e1-95e1-912d9b59fc37
+# ╠═13e8fcab-1ecd-4cd0-8076-9580849942b7
+# ╠═d71039b4-e315-4662-b5cd-0234d8e3bb11
