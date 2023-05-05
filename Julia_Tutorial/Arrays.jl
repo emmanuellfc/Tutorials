@@ -394,13 +394,16 @@ begin
 end
 
 # ╔═╡ 18ff1303-6eb5-4335-8308-2f7374eca4fa
-
+md"**Exercise 10-6:**
+Two words are anagrams if you can rearrange the letters from one to spell the other. Write a function called isanagram that takes two strings and returns true if they are anagrams."
 
 # ╔═╡ c1f82997-b2cf-4c01-8969-54220f44eb9d
-
+function isnagram(word1, word2)
+end
 
 # ╔═╡ d6eb5c73-12b6-4bb8-a237-c3231130b629
-
+md"**Exercise 10-7:**
+Write a function called hasduplicates that takes an array and returns true if there is any element that appears more than once. It should not modify the original array."
 
 # ╔═╡ 7815059f-ac87-4a0d-beb3-70446b81fbfe
 
@@ -478,8 +481,8 @@ end
 # ╟─86bfd7ca-eb50-49bc-9027-31c89b13ed72
 # ╠═6169f8e0-cfa8-4fb6-b9e5-d21f86baac64
 # ╠═b359c255-70d7-43ef-9596-a7fd44cc1e89
-# ╠═18ff1303-6eb5-4335-8308-2f7374eca4fa
+# ╟─18ff1303-6eb5-4335-8308-2f7374eca4fa
 # ╠═c1f82997-b2cf-4c01-8969-54220f44eb9d
-# ╠═d6eb5c73-12b6-4bb8-a237-c3231130b629
+# ╟─d6eb5c73-12b6-4bb8-a237-c3231130b629
 # ╠═7815059f-ac87-4a0d-beb3-70446b81fbfe
 # ╠═0ae78ff1-d8e0-4c52-b7e7-ed64cdd890d1
