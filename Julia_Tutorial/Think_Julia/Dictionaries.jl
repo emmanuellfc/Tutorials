@@ -61,12 +61,6 @@ end
 # ╔═╡ a696b97b-8be2-4f0d-a448-48f0e1197db9
 bronto = histogram("brontosaurus")
 
-# ╔═╡ 5791d85b-bdd0-47fc-b560-0b41513fc859
-h = histogram("a")
-
-# ╔═╡ ff9fbacb-a259-49f8-9232-f342049b28c3
-get(h, 'a', 0)
-
 # ╔═╡ bcd8efb3-8d1f-4f8c-981e-f3c71489d971
 get(bronto, 'o', 0)
 
@@ -85,6 +79,145 @@ end
 
 # ╔═╡ f4f17fc7-27cc-43c7-b74c-7002fca4cb72
 histogram2("brontosaurus") == histogram("brontosaurus")
+
+# ╔═╡ 581eeae9-4094-440f-8865-5ab17e380049
+function printhist(h)
+	for c in keys(h)
+		println(c, " ", h[c])
+	end
+end
+
+# ╔═╡ ff9fbacb-a259-49f8-9232-f342049b28c3
+get(h, 'a', 0)
+
+# ╔═╡ 4de8b99e-2a2e-40eb-9200-94a8a0eb8f69
+printhist(h)
+
+# ╔═╡ ac7e40c2-68c4-461d-bf65-fc96ba401e97
+function reverselookup(d, v)
+    for k in keys(d)
+        if d[k] == v
+            return k
+        end
+    end
+    error("LookupError")
+end
+
+# ╔═╡ dd5360d1-dfed-406f-8d55-842efa0348d2
+md"The error function is used to produce an ErrorException that interrupts the normal flow of control. In this case it has the message *LookupError*, indicating that a key does not exist."
+
+# ╔═╡ 745dde34-f48d-4249-8889-9220cce7ada7
+key = reverselookup(h, 2)
+
+# ╔═╡ e6ce19b2-d2e9-4b66-88f3-0c00eef04a12
+key2 = reverselookup(h, 3)
+
+# ╔═╡ 3bb23938-f6c2-4a04-a28b-06c4d7ada192
+function invertdict(d)
+    inverse = Dict()
+    for key in keys(d)
+        val = d[key]
+        if val ∉ keys(inverse)
+            inverse[val] = [key]
+        else
+            push!(inverse[val], key)
+        end
+    end
+    inverse
+end
+
+# ╔═╡ e2657f4a-3063-4e39-9b72-86a54ba121d1
+hist = histogram("parrot");
+
+# ╔═╡ ff736dc7-c62f-4fa2-bf55-98c8e9a1cc7f
+inverse = invertdict(hist)
+
+# ╔═╡ 4022ce19-29bb-4e70-8ec3-a369263e6249
+known = Dict(0=>0, 1=>1)
+
+# ╔═╡ 149d29fc-312b-46bc-b328-94967e9c9dce
+function fibonacci(n)
+    if n ∈ keys(known)
+        return known[n]
+    end
+    res = fibonacci(n-1) + fibonacci(n-2)
+    known[n] = res
+    res
+end
+
+# ╔═╡ 35db0988-4c24-4383-b3c2-e9baaba1d4b7
+fibonacci(10)
+
+# ╔═╡ 2322f360-b2e6-43ce-97b1-ed6190508af4
+md"Variables in Main are sometimes called global because they can be accessed from any function.
+
+It is common to use global variables for flags; that is, Boolean variables that indicate (“flag”) whether a condition is true.
+"
+
+# ╔═╡ c5c09f2e-b606-4ffe-b5c5-5994b5a447c2
+begin
+	verbose = true
+	function example1()
+		if verbose
+			println("Running example1")
+		end
+	end
+end
+
+# ╔═╡ 492052c2-ecc5-4e1b-abb1-9189edf10ecc
+example1()
+
+# ╔═╡ d686d487-b600-4278-9316-708f7e36b5c5
+md"**Glossary**
+
+* dictionary: A mapping from keys to their corresponding values.
+
+* key: An object that appears in a dictionary as the first part of a key-value pair.
+
+* value: An object that appears in a dictionary as the second part of a key-value pair. This is more specific than our previous use of the word “value.”
+
+* key-value pair: The representation of the mapping from a key to a value.
+
+* item: In a dictionary, another name for a key-value pair.
+
+* mapping: A relationship in which each element of one set corresponds to an element of another set.
+
+* hash table: The algorithm used to implement Julia dictionaries.
+
+* implementation: A way of performing a computation.
+
+* lookup: A dictionary operation that takes a key and finds the corresponding value.
+
+* reverse lookup: A dictionary operation that takes a value and finds one or more keys that map to it.
+
+* singleton: An array (or other sequence) with a single element.
+
+* hashable: A type that has a hash function.
+
+* hash function: A function used by a hash table to compute the location for a key.
+
+* call graph: A diagram that shows every frame created during the execution of a program, with an arrow from each caller to each callee.
+
+* memo: A computed value stored to avoid unnecessary future computation.
+
+* global variable: A variable defined outside a function. Global variables can be accessed from any function.
+
+* flag: A Boolean variable used to indicate whether a condition is true.
+
+* declaration: A statement like global that tells the interpreter something about a variable.
+
+* global statement: A statement that declares a variable name global.
+
+* constant global variable: A global variable that cannot be reassigned."
+
+# ╔═╡ cc73dd9b-fd7e-4d7a-8b7d-0b481dbf126e
+h = histogram("parrot");
+
+# ╔═╡ 5791d85b-bdd0-47fc-b560-0b41513fc859
+# ╠═╡ disabled = true
+#=╠═╡
+h = histogram("a")
+  ╠═╡ =#
 
 # ╔═╡ Cell order:
 # ╟─fe750fb2-eb49-11ed-2098-6b168a6a788c
@@ -106,3 +239,20 @@ histogram2("brontosaurus") == histogram("brontosaurus")
 # ╟─644f7076-7ebe-48fa-9b7b-16b5f0904813
 # ╠═4cb52de2-0664-4c30-9135-8b1fa5284887
 # ╠═f4f17fc7-27cc-43c7-b74c-7002fca4cb72
+# ╠═581eeae9-4094-440f-8865-5ab17e380049
+# ╠═cc73dd9b-fd7e-4d7a-8b7d-0b481dbf126e
+# ╠═4de8b99e-2a2e-40eb-9200-94a8a0eb8f69
+# ╠═ac7e40c2-68c4-461d-bf65-fc96ba401e97
+# ╟─dd5360d1-dfed-406f-8d55-842efa0348d2
+# ╠═745dde34-f48d-4249-8889-9220cce7ada7
+# ╠═e6ce19b2-d2e9-4b66-88f3-0c00eef04a12
+# ╠═3bb23938-f6c2-4a04-a28b-06c4d7ada192
+# ╠═e2657f4a-3063-4e39-9b72-86a54ba121d1
+# ╠═ff736dc7-c62f-4fa2-bf55-98c8e9a1cc7f
+# ╠═4022ce19-29bb-4e70-8ec3-a369263e6249
+# ╠═149d29fc-312b-46bc-b328-94967e9c9dce
+# ╠═35db0988-4c24-4383-b3c2-e9baaba1d4b7
+# ╟─2322f360-b2e6-43ce-97b1-ed6190508af4
+# ╠═c5c09f2e-b606-4ffe-b5c5-5994b5a447c2
+# ╠═492052c2-ecc5-4e1b-abb1-9189edf10ecc
+# ╟─d686d487-b600-4278-9316-708f7e36b5c5
