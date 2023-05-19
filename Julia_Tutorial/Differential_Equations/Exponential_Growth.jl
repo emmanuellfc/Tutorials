@@ -72,13 +72,31 @@ sol.u
 sol(0.45)
 
 # ╔═╡ e9a45b8b-44aa-421f-b4b3-8eca9a5207f4
+md"""
+**Controlling the solver**
 
+The most useful options are the tolerances abstol and reltol. These tell the internal adaptive time stepping engine how precise of a solution you want. Generally, reltol is the relative accuracy while abstol is the accuracy when u is near zero. These tolerances are local tolerances and thus are not global guarantees. However, a good rule of thumb is that the total solution accuracy is 1-2 digits less than the relative tolerances. Thus for the defaults abstol=1e-6 and reltol=1e-3, you can expect a global accuracy of about 1-2 digits.
+"""
 
 # ╔═╡ 93512ef9-46db-43d3-8944-b3bea1b9fc76
-
+# Solve with around 6 digits of accuracy
+sol1 = solve(prob, abstol=1e-8, reltol=1e-8)
 
 # ╔═╡ 5e8156b7-b008-4780-8401-7ccf6b413060
+begin
+	plot(sol1, lw = 1.5,label="Numerical Solution")
+	plot!(sol.t, t->1.0exp(0.98t), lw = 2.5, ls=:dash, label = "Analytical solution")
+end
 
+# ╔═╡ 5f6756a7-b14f-47e0-80b0-a239344bf5f5
+md"""
+By decreasing the tolerance, the number of steps the solver had to take was 9 instead of the previous 5, so, there is a trade-off between accuracy and speed.
+
+Another common option is to use saveat to make the solver save at specific time points.
+"""
+
+# ╔═╡ 12139cc9-cb59-4f05-ba49-04a7c4d112e9
+sol2 = solve(prob, saveat=0.1)
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -99,7 +117,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.8.5"
 manifest_format = "2.0"
-project_hash = "d9ae70cf1c99c97e1525c280c35ab55b254d13ed"
+project_hash = "0098551eb6bb46d7ebaa5af462c0ac684b614baa"
 
 [[deps.ADTypes]]
 git-tree-sha1 = "dcfdf328328f2645531c4ddebf841228aef74130"
@@ -1727,7 +1745,7 @@ version = "1.4.1+0"
 
 # ╔═╡ Cell order:
 # ╟─68a3d0d2-f5ca-11ed-0f9f-314951b18fa4
-# ╟─ce8bf6f5-c626-4ee7-bbc1-bc976a051a08
+# ╠═ce8bf6f5-c626-4ee7-bbc1-bc976a051a08
 # ╟─0acfb908-5e09-49d7-9058-316d157d531f
 # ╟─92cb8d98-36da-49a4-b5fb-1280fc4953f9
 # ╠═7ba09d59-c3e9-47b0-be04-4c384a7ab47e
@@ -1740,8 +1758,10 @@ version = "1.4.1+0"
 # ╠═6af897d4-83d9-401b-b82a-097c38a3ee9a
 # ╠═607b0695-1dbe-47a5-84a1-374bf85fc9e0
 # ╠═52b2f253-e6ca-4f81-ac65-331004cfa3cb
-# ╠═e9a45b8b-44aa-421f-b4b3-8eca9a5207f4
+# ╟─e9a45b8b-44aa-421f-b4b3-8eca9a5207f4
 # ╠═93512ef9-46db-43d3-8944-b3bea1b9fc76
 # ╠═5e8156b7-b008-4780-8401-7ccf6b413060
+# ╟─5f6756a7-b14f-47e0-80b0-a239344bf5f5
+# ╠═12139cc9-cb59-4f05-ba49-04a7c4d112e9
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
