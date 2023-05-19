@@ -76,7 +76,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.8.5"
 manifest_format = "2.0"
-project_hash = "d9ae70cf1c99c97e1525c280c35ab55b254d13ed"
+project_hash = "0098551eb6bb46d7ebaa5af462c0ac684b614baa"
 
 [[deps.ADTypes]]
 git-tree-sha1 = "dcfdf328328f2645531c4ddebf841228aef74130"
